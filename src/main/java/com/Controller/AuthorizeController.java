@@ -37,6 +37,7 @@ public class AuthorizeController {
         accessTokenDTO.setClient_secret(clientSecret);
         String accessToken = githubProvidr.getAccessToken(accessTokenDTO);
         GithubUser user = githubProvidr.getUser(accessToken);
+        System.out.println(user);
         if (user != null){
             request.getSession().setAttribute("user",user);
             return "redirect:/";
